@@ -6,11 +6,14 @@ var lipsum = new Lipsum();
 lipsumOpts = {
     start: 'yes',
     what: 'bytes',
-    amount: 1800
+    amount: 200
 };
 lipsum.getText(function (text) {
     router.get('/', function (req, res, next) {
-        res.send(text);
+        res.render('contacts', {
+            title: 'Contacts',
+            textLipsum: text
+        })
     });
 }, lipsumOpts);
 
